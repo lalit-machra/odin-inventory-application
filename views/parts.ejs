@@ -1,0 +1,21 @@
+<!-- needs title and parts, where each part has a title and a price -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+</head>
+<body>
+  <div>
+    <% parts.forEach(part => { %>
+      <div class="part">
+        <img>
+        <h2>part.name</h2>
+        <h2>$<%= part.price %></h2>
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>
