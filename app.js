@@ -1,9 +1,10 @@
-import { express } from "express";
+import express from "express";
 import { indexRouter } from "./routes/indexRouter.js";
 import { partsRouter } from "./routes/partsRouter.js";
 
 const app = express();
 app.set("view engine", "ejs");
+app.use(express.static("./public"));
 
 app.use("/", indexRouter);
 app.use("/parts", partsRouter);
