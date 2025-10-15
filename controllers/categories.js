@@ -1,8 +1,9 @@
 import { addCategory, getAllCategories } from "../db/query.js";
 import { uploadImg, getImageUrl } from "../storage/s3operations.js";
 
-async function populateCategories(bucketName, imgFilename, imgPath, imgTitle) {
+async function populateCategories(imgFilename, imgPath, imgTitle) {
   try {
+    const bucketName = 'inventory-category-480';
     await uploadImg(bucketName, imgFilename, imgPath);
     await addCategory(imgTitle, bucketName, imgFilename);
     console.log("entry added to categories");

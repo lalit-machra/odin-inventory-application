@@ -42,7 +42,7 @@ async function uploadImg(bucketName, fileName, filePath) {
     const s3client = new S3Client({});
 
     const fileStream = fs.createReadStream(filePath);
-    const response = await s3client.send(
+    await s3client.send(
       new PutObjectCommand({
         Bucket: bucketName,
         Key: fileName,
@@ -51,7 +51,6 @@ async function uploadImg(bucketName, fileName, filePath) {
         StorageClass: 'INTELLIGENT_TIERING',
       })
     );
-    console.log(response);
     console.log("image upload successful");
   } catch(err) {
     console.log(err);
