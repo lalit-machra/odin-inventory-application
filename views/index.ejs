@@ -4,6 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
     <title>Home</title>
   </head>
   <body>
@@ -11,45 +12,14 @@
       <h1>Auto Inventory</h1>
       <p>All auto parts of all cars at one place</p>
     </div>
+    <h2>Pick a category</h2>
     <div class="categories">
-      <h2>Pick a category</h2>
-      <div class="category">
-        <img>
-        <p>Engine</p>
-      </div>
-      <div class="category">
-        <img>
-        <p>Oils and Fluids</p>
-      </div>
-      <div class="category">
-        <img>
-        <p>Tyres and Alloys</p>
-      </div>
-      <div class="category">
-        <img>
-        <p>Electric Parts</p>
-      </div>
-      <div class="category">
-        <img>
-        <p>Brake System</p>
-      </div>
-      <div class="category">
-        <img>
-        <p>Clutch System</p>
-      </div>
-      <div class="category">
-        <img>
-        <p>Car Accessories</p>
-      </div>
-      <div class="category">
-        <img>
-        <p>Repair Kits</p>
-      </div>
-
-      <div class="category">
-        <img>
-        <p>Add New</p>
-      </div>
+      <% categories.forEach((category) => { %>
+        <a href="/parts/<%= category.tag %>" class="category">
+          <img src="<%= category.image %>">
+          <p><%= category.name %></p>
+        </a>
+      <% }) %>
     </div>
   </body>
 </html>
