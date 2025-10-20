@@ -6,16 +6,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= title %></title>
+  <link rel="stylesheet" href="/css/parts.css" type="text/css">
 </head>
 <body>
-  <div>
+  <h1><%= title %></h1>
+  <div class="parts">
     <% parts.forEach(part => { %>
       <div class="part">
-        <img>
-        <h2>part.name</h2>
-        <h2>$<%= part.price %></h2>
+        <img src="<%= part.image %>">
+        <span><%= part.name %></span>
+        <span>Rs. <%= part.price %></span>
+        <div>
+          <button>Edit</button>
+          <button>Delete</button>
+        </div>
       </div>
     <% }) %>
+    <div class="part">
+      <img src="<%= addNew.img %>">
+      <span><%= addNew.title %></span>
+    </div>
   </div>
 </body>
 </html>
