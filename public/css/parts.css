@@ -1,0 +1,39 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 3vw 10vw;
+}
+
+h1 {
+  text-align: center;
+}
+
+.parts {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 5vw;
+}
+
+.part {
+  padding: 2vw;
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid;
+}
+
+.part img {
+  height: 200px;
+  width: 200px;
+}
+
+.part span {
+  font-size: 22px;
+}
