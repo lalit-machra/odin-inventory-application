@@ -37,17 +37,16 @@ async function deleteBucket(bucketName) {
   }
 }
 
-async function uploadImg(bucketName, fileName, filePath) {
+async function uploadImg(bucketName, fileName, filePath, fileBuffer, fileMimeType) {
   try {
     const s3client = new S3Client({});
-
-    const fileStream = fs.createReadStream(filePath);
+    const fileStream = fileBuffer ? fileBuffer : fs.createReadStream(filePath);
     await s3client.send(
       new PutObjectCommand({
         Bucket: bucketName,
         Key: fileName,
         Body: fileStream,
-        ContentType: 'image/png',
+        ContentType: fileMimeType,
         StorageClass: 'INTELLIGENT_TIERING',
       })
     );
@@ -61,14 +60,12 @@ async function uploadImg(bucketName, fileName, filePath) {
 async function deleteImg(bucketName, fileName) {
   try {
     const s3client = new S3Client({});
-
-    const response = await s3client.send(
-      new PutObjectCommand({
+    await s3client.send(
+      new DeleteObjectCommand({
         Bucket: bucketName,
         Key: fileName,
       })
     );
-    console.log(response);
     console.log("image deletion successful");
   } catch(err) {
     console.log(err);
@@ -91,4 +88,4 @@ async function getImageUrl(bucket, key) {
   }
 }
 
-export { uploadImg, getImageUrl };
+export { uploadImg, getImageUrl, deleteImg };

@@ -67,8 +67,8 @@ body {
   flex-direction: row;
   width: 100%;
   flex-wrap: wrap;
-  justify-content: space-between; 
-  row-gap: 10vh;
+  justify-content: flex-start;
+  gap: 15vh;
 }
 
 .category {
@@ -89,7 +89,7 @@ body {
   background-color: white;
 }
 
-.category p {
+.category span {
   margin: 0;
   font-size: 24px;
 }

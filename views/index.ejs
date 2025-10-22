@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/index.css" type="text/css">
     <title>Home</title>
+    <script src="/js/newCategoryDialog.js" defer></script>
   </head>
   <body>
     <div class="intro">
@@ -17,9 +18,14 @@
       <% categories.forEach((category) => { %>
         <a href="/parts/<%= category.tag %>" class="category">
           <img src="<%= category.image %>">
-          <p><%= category.name %></p>
+          <span><%= category.name %></span>
         </a>
       <% }) %>
+      <div class="category addNewCategory">
+        <img src="<%= addNew.image %>">
+        <span><%= addNew.name %></span>
+      </div>
     </div>
+    <%- include('createCategory') %>
   </body>
 </html>

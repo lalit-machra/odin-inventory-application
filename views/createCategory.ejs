@@ -1,9 +1,9 @@
-<dialog>
-  <form>
+<dialog class="categoryDialog">
+  <form action="/" method="post" class="categoryForm" enctype="multipart/form-data">
     <label for="categoryName">Category Name</label>
-    <input id="categoryName">
+    <input id="categoryName" name="name" required>
     <label for="categoryImg">Image</label>
-    <input id="categoryImg" type="file">
+    <input id="categoryImg" type="file" name="image" required>
     <button type="submit">Submit</button>
   </form>
 </dialog>
