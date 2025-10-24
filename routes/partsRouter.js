@@ -7,6 +7,6 @@ partsRouter.get("/", (req, res) => {
   res.redirect("/");
 });
 partsRouter.get("/:part", getParts);
-partsRouter.post("/", postParts);
+partsRouter.post("/:part", postParts);
 
 export { partsRouter };

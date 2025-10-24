@@ -37,15 +37,14 @@ async function deleteBucket(bucketName) {
   }
 }
 
-async function uploadImg(bucketName, fileName, filePath, fileBuffer, fileMimeType) {
+async function uploadImg(bucketName, fileName, fileBuffer, fileMimeType) {
   try {
     const s3client = new S3Client({});
-    const fileStream = fileBuffer ? fileBuffer : fs.createReadStream(filePath);
     await s3client.send(
       new PutObjectCommand({
         Bucket: bucketName,
         Key: fileName,
-        Body: fileStream,
+        Body: fileBuffer,
         ContentType: fileMimeType,
         StorageClass: 'INTELLIGENT_TIERING',
       })

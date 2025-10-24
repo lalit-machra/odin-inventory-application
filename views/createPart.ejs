@@ -1,11 +1,11 @@
-<dialog>
-  <form>
-    <label for="partImg">Image</label>
-    <input id="partImg" type="file">
+<dialog class="partDialog">
+  <form action="/parts/<%= part %>" method="post" class="partForm" enctype="multipart/form-data">
     <label for="partName">Part Name</label>
-    <input id="partName">
+    <input id="partName" required name="partName">
     <label for="partPrice">Part Price</label>
-    <input id="partPrice" type="number">
+    <input id="partPrice" type="number" name="partPrice" required>
+    <label for="partImg">Image</label>
+    <input id="partImg" type="file" name="partImg">
     <button type="submit">Submit</button>
   </form>
 </dialog>

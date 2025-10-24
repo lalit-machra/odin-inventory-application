@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= title %></title>
   <link rel="stylesheet" href="/css/parts.css" type="text/css">
+  <script src="/js/newPartDialog.js" defer></script>
 </head>
 <body>
   <h1><%= title %></h1>
@@ -15,15 +16,15 @@
         <span><%= part.name %></span>
         <span>Rs. <%= part.price %></span>
         <div>
-          <button>Edit</button>
           <button>Delete</button>
         </div>
       </div>
     <% }) %>
-    <div class="part">
-      <img src="<%= addNew.img %>">
-      <span><%= addNew.title %></span>
+    <div class="part addNewPart">
+      <img src="<%= addNew.image %>">
+      <span><%= addNew.name %></span>
     </div>
   </div>
+  <%- include("createPart", { part: rawPartCategory }) %>
 </body>
 </html>
